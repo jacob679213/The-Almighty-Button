@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+    <title>The Almighty Button</title>
+    <style type="text/css">
+        body{
+            background-color: rgb(0,0,255);
+            color: white
+        }
+        
+        button{
+            background-color: rgb(255,0,0);
+            border-color: rgb(255,0,0);
+        }
+        
+        #duplicator{
+            background-color: rgb(0,255,0);
+            border-color: rgb(0,255,0);
+            border-radius: 100%;
+            padding: 50px 35px;
+        }
+    </style>
+</head>
+<body onkeydown="check()">
+    <!--HTML time!-->
+    <center id = "d1">
+        
+        <h1>The Almighty Button</h1>
+        <br><br>
+        
+        <h4>Delete Button Counter:</h4>
+        <p id = "counter">
+            0
+        </p>
+        <br><br>
+        
+        <button id = "duplicator" onclick = "dup()" onkeydown="check()">
+            Duplicate
+        </button>
+        <br><br>
+        
+        <div id = "d2"></div>
+    </center>
+    <script>
+        //FINALY doing javascript...
+        
+        //setup for later
+        var count = 0
+        var d1 = document.getElementById("d1")
+        var d2 = document.getElementById("d2")
+        var counter = document.getElementById("counter")
+        
+        //quick check if the key pressed was Space
+        function check(){
+            var x = event.key
+            if (x == " "){
+                dup()
+            }
+            else if(x == "c"){
+                d2.innerHTML = ""
+                count = 0
+                counter.innerHTML = (count)
+            }
+            else if(x == "y"){
+                Yeetus()
+            }
+        }
+        
+        //function to run when clicking duplicate button
+        function dup(){
+            //Create a new button (temporarily called add)
+            var add = document.createElement("button")
+            
+            add.onclick = function(){
+                //make the delete button delete itself...
+                d2.removeChild(this)
+                count--
+                counter.innerHTML = (count)
+            }
+            
+            //make Add's text be "Delete"
+            var node = document.createTextNode("Delete")
+            add.appendChild(node)
+            
+            //take d2 and add the button!
+            d2.appendChild(add)
+            
+            count++
+            counter.innerHTML = (count)
+            
+            //console.log("it worked!")
+        }
+        
+        function Yeetus(){
+            var r = confirm("Are you sure about that?")
+            if (r == true){
+                d1.innerHTML = ""
+                console.log("Yeetus Yeetus, Self Deletus")
+            }
+            else if (r == false){
+                alert("Good Choice")
+            }
+        }
+    
+    
+    </script>
+</body>
+</html>
