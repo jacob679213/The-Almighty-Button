@@ -95,7 +95,7 @@
             var r = confirm("Are you sure about that?")
             if (r == true){
                 d1.innerHTML = ""
-                console.log("Yeetus Yeetus, Self Deletus")
+                alert("Yeetus Yeetus, Self Deletus")
             }
             else if (r == false){
                 alert("Good Choice")
